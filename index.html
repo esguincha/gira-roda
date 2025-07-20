@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>🎁 Gira a Roda!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      max-width: 500px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h2 {
+      color: #f90;
+      margin-bottom: 20px;
+    }
+    .option {
+      background: #232f3e;
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .option:hover {
+      background: #3a4a5f;
+    }
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>🎁 Ativa 2 das opções abaixo para continuar!</h2>
+
+    <a class="option" href="https://www.amazon.es/prime?tag=ID_de_afiliado-21"
+       target="_blank" onclick="registarClique('filmes_series')">✅ Filmes e Séries Grátis</a>
+
+    <a class="option" href="https://www.amazon.es/music/unlimited?tag=ID_de_afiliado-21"
+       target="_blank" onclick="registarClique('musica')">✅ Música Grátis 3 Meses</a>
+
+    <a class="option" href="https://www.amazon.es/kindle-dbs/hz/signup?tag=ID_de_afiliado-21"
+       target="_blank" onclick="registarClique('livros')">✅ Livros e eBooks Grátis</a>
+
+    <p class="note">📊 Já temos 47.124 dos 50.000 participantes!</p>
+    <p class="note">* Esta página é promocional. Os prémios são ilustrativos. Apenas quem ativa 2 opções entra nos sorteios reais.</p>
+  </div>
+
+  <script>
+    const URL = "https://script.google.com/macros/s/AKfycbziYPVb4CxkfPS8YFBIPLBEJxiWs3H5_8AHiXoueYMg611-KyVMaPaEGiQ1m8RGT_XA/exec";
+
+    function registarClique(categoria) {
+      fetch(URL, {
+        method: "POST",
+        body: JSON.stringify({ categoria }),
+        headers: { "Content-Type": "application/json" }
+      }).catch(err => console.error("Erro ao registar clique:", err));
+    }
+  </script>
+</body>
+</html>
